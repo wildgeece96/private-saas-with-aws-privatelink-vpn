@@ -1,24 +1,14 @@
-variable "vpc_id" {
-  type        = string
-  description = "VPC hosting the ALB"
+variable "vpc_cidr" {
+  default = "10.0.0.0/16"
 }
 
-variable "subnet_ids" {
-  type        = list(string)
-  description = "Private Subnet Ids for NLB. These should be the same AZs the ALB is using."
+variable "az_count" {
+  default = 3
 }
 
-variable "alb_arn" {
-  type        = string
-  description = "Application Load Balancer ARN"
+variable "enable_multi_nat" {
+  default = false
 }
 
-variable "zone_id" {
-  type        = string
-  description = "Hosted Zone ID"
-}
 
-variable "domain_name" {
-  type        = string
-  description = "Domain Name"
-}
+

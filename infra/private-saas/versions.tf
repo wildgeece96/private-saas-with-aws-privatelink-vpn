@@ -4,12 +4,12 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "5.67.0"  # "~> 5.0"
+      version = "~> 5.0" # "5.67.0"
     }
   }
   backend "s3" {
-    bucket = "tfstate-bucket"
-    key    = "${locals.aws_account_id}/${locals.tags.Project}"
-    region = locals.region
+    bucket = "060795931415-ap-northeast-1-tfstate-bucket"
+    key    = "private-saas/terraform.tfstate"
+    region = "ap-northeast-1"
   }
 }
