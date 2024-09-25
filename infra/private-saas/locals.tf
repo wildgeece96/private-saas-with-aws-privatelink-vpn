@@ -1,7 +1,7 @@
 locals {
   tags = {
     Terraform = "true"
-    Project   = "private-saas-vpc"
+    Project   = "private-saas"
   }
   region = "ap-northeast-1"
 

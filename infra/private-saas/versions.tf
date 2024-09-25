@@ -9,7 +9,7 @@ terraform {
   }
   backend "s3" {
     bucket = "060795931415-ap-northeast-1-tfstate-bucket"
-    key    = "private-saas-vpc/terraform.tfstate"
+    key    = "private-saas/terraform.tfstate"
     region = "ap-northeast-1"
   }
 }
