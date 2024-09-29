@@ -1,0 +1,2 @@
+project_id: "private-saas-with-privatelink"
+region: "ap-northeast-1" # region to deploy AWS resources
