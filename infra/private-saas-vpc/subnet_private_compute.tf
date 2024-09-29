@@ -5,9 +5,10 @@ resource "aws_subnet" "compute" {
   cidr_block        = cidrsubnet(var.vpc_cidr, 8, var.az_count + count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
-  tags = {
+  
+  tags = merge(local.tags, {
     Name = "${local.tags.Project}: Compute Subnet ${count.index + 1}"
-  }
+  })
 }
 
 
@@ -21,9 +22,9 @@ resource "aws_route_table" "private_compute" {
     nat_gateway_id = aws_nat_gateway.main[count.index].id
   }
 
-  tags = {
+  tags = merge(local.tags, {
     Name = "${local.tags.Project}: Private Compute Route Table ${count.index + 1}"
-  }
+  })
 }
 
 resource "aws_route_table_association" "private_compute" {

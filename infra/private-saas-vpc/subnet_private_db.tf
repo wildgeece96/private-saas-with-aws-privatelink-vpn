@@ -4,17 +4,17 @@ resource "aws_subnet" "db" {
   cidr_block        = cidrsubnet(var.vpc_cidr, 8, 2 * var.az_count + count.index)
   availability_zone = data.aws_availability_zones.available.names[count.index]
 
-  tags = {
-    Name = "${local.tags.Project}: Private DB Subnet ${count.index + 1}"
-  }
+  tags = merge(local.tags, {
+    Name = "Private DB Subnet ${count.index + 1}"
+  })
 }
 
 resource "aws_route_table" "private_db" {
   vpc_id = aws_vpc.main.id
 
-  tags = {
-    Name = "${local.tags.Project}: Private DB Route Table"
-  }
+  tags = merge(local.tags, {
+    Name = "private-saas-tg"
+  })
 }
 
 resource "aws_route_table_association" "private_db" {
