@@ -54,7 +54,7 @@ resource "aws_ecs_service" "app" {
     container_port   = 80
   }
 
-  depends_on = [aws_lb_listener.https, aws_iam_role.ecs_execution_role]
+  depends_on = [aws_lb_listener.http, aws_iam_role.ecs_execution_role]
 
   tags = merge(local.tags, {
     Name = "private-saas-service"
