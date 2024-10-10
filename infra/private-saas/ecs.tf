@@ -41,7 +41,7 @@ resource "aws_ecs_service" "app" {
   task_definition = aws_ecs_task_definition.app.arn
   desired_count   = 1
   launch_type     = "FARGATE"
-#   iam_role        = aws_iam_role.ecs_service.name
+  #   iam_role        = aws_iam_role.ecs_service.name
 
   network_configuration {
     subnets         = local.private_compute_subnet_ids

@@ -9,4 +9,6 @@ locals {
   vpc_id                     = data.aws_ssm_parameter.vpc_id.value
   public_subnet_ids          = split(",", data.aws_ssm_parameter.public_subnet_ids.value)
   private_compute_subnet_ids = split(",", data.aws_ssm_parameter.private_compute_subnet_ids.value)
+  domain                     = yamldecode(file("../shared_variables.yaml")).domain
+  zone_id                    = data.aws_ssm_parameter.route53_zone_id.value
 }
